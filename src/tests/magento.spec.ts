@@ -16,7 +16,6 @@ test.describe('Magento E-commerce Tests', () => {
     );
     await homePage.searchForProduct(testData.searchKeyword);
 
-    // Validate product list count
     const productList = page.locator('.product-item');
     await expect(productList).toHaveCount(5);
   });
@@ -32,7 +31,6 @@ test.describe('Magento E-commerce Tests', () => {
     await page.waitForLoadState('domcontentloaded');
     await cartPage.selectOptions(testData.size, testData.color, testData.quantity);
 
-    // Validate success message
     const toastMessage = page.getByText(testData.successMessage);
     await expect(toastMessage).toBeVisible();
   });
